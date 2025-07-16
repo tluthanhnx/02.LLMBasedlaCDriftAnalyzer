@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+*.pkl
+*.log
+*.sqlite3
+*.h5
+.env.*
