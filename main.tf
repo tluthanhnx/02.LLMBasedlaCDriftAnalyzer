@@ -52,8 +52,8 @@ resource "aws_eip" "db_eip" {
 }
 
 # ✅ Security group mới
-resource "aws_security_group" "web_sg" {
-  name        = "web-sg"
+resource "aws_security_group" "web_tlu" {
+  name        = "web-tlu"
   description = "Allow HTTP and SSH"
 
   ingress {
