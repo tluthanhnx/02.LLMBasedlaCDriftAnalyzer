@@ -1,7 +1,7 @@
 variable "instance_name" {
   description = "Value of the EC2 instance's Name tag."
   type        = string
-  default     = "Phan"
+  default     = "vpbank.02"
 }
 
 variable "instance_type" {
