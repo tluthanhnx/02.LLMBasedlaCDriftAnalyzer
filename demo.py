@@ -6,7 +6,6 @@ from dotenv import load_dotenv
 
 load_dotenv('./source/.env')
 api_key =  os.getenv('open_router_api_key')
-print(api_key)
 
 # with open('plan.json','r') as f:
 #     resource_changes = json.load(f)
@@ -19,7 +18,7 @@ print(api_key)
 # print(new_resource.keys())
 # print()
 # print(old_resource.keys())
-# print('___________________')
+# print('___________________') plan.json
 with open("plan.json", "r", encoding="utf-8") as f:
     content = f.read()
     
