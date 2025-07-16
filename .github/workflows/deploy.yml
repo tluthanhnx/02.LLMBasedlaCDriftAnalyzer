@@ -1,0 +1,46 @@
+name: CI/CD 2 AWS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run tests
+        run: pytest
+
+      - name: Deploy to AWS EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.AWS_HOST }}
+          username: ${{ secrets.AWS_USER }}
+          key: ${{ secrets.AWS_SSH_KEY }}
+          script: |
+            source venv/bin/activate
+            cd /home/ubuntu/02.LLMBasedlaCDriftAnalyzer
+            git pull origin main
+            python3 -m venv venv
+            pip install -r requirements.txt
+            export AWS_ACCESS_KEY_ID=AKIAWTTKELUZWKUVFSNU
+            export AWS_SECRET_ACCESS_KEY=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
+            export api_key=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
+            terraform init
+            terraform plan -out=plan.tfplan
+            terraform show -json plan.tfplan > plan.json
+            python3 demo.py
