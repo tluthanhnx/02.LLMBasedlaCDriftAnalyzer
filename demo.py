@@ -19,7 +19,7 @@ api_key =  os.getenv('open_router_api_key')
 # print()
 # print(old_resource.keys())
 # print('___________________')
-with open("plan_output.txt", "r", encoding="utf-8") as f:
+with open("plan.json", "r", encoding="utf-8") as f:
     content = f.read()
     
 
