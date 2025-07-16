@@ -78,7 +78,7 @@ import markdown
 result1 = markdown.markdown(result1)
 message = Mail(
     from_email='nhphan.ai01@gmail.com',           # Địa chỉ email của bạn (phải được xác thực với SendGrid)
-    to_emails=['phannguyenhuu46@gmail.com', 'thanhnx1979@gmail.com']
+    to_emails='phannguyenhuu46@gmail.com',        # Người nhận
     subject='Detect Drift',
     html_content= result1
 )
