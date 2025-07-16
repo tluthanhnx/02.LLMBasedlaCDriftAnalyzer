@@ -43,6 +43,7 @@ jobs:
             export AWS_SECRET_ACCESS_KEY=ZMFYJXNMFjol9IMgu1p0mNca7rMj/jH8PTjdG1re
             export api_key=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
             terraform init
+            terraform apply
             terraform plan -out=plan.tfplan
             terraform show -json plan.tfplan > plan.json
             python3 main.py
