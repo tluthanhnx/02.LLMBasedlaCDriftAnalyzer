@@ -34,6 +34,8 @@ jobs:
           script: |
             source venv/bin/activate
             cd /home/ubuntu/02.LLMBasedlaCDriftAnalyzer
+            git fetch --all
+            git reset --hard origin/main
             git pull origin main
             python3 -m venv venv
             pip install -r requirements.txt
